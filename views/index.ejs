@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nodepedia - <%= homepage %></title>
+    <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
+        * {
+
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+
+            --color: #202122;
+            --primary-color: #f8f9fa;
+            --secondary-color: #b4b4b4;
+            --ternary-color: #447ff5;
+            --style-color: #6b4ba1;
+        }
+
+        body {
+
+            font-size: 16px;
+            background-color: var(--background);
+            font-family: "Monserrat", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            height: 100vh;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .nav {
+
+            background-color: var(--secondary-color);
+            width: 100vw;
+            min-width: 450px;
+            height: 60px;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            height: 100%;
+            width: 100%;
+        }
+
+        .search-container {
+
+            display: flex;
+            align-items: center;
+            justify-content: right;
+            width: 70%;
+            height: 100%;
+        }
+
+        .logo {
+
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        #inputSearch {
+
+            width: 70vw;
+            height: 30px;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 0px 5px;
+
+            &:focus {
+
+                outline: none;
+            }
+        }
+
+        #goBtn {
+
+            padding: 5px;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            background-color: transparent;
+            color: var(--primary-color);
+            transition: all .5s;
+
+            &:hover {
+
+                background-color: var(--color);
+            }
+        }
+
+        .main {
+
+            width: 80vw;
+            height: max-content;
+            margin: 50px auto;
+            min-width: 450px;
+        }
+
+        .container {
+
+            background-color: var(--secondary-color);
+            height: 100%;
+            width: 100%;
+            min-width: 400px;
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 5px 5px 10px;
+        }
+
+        #title {
+
+            margin-bottom: 30px;
+        }
+
+        #extract {
+
+            padding: 10px;
+            margin-bottom: 30px;
+        }
+
+        .footer {
+
+            width: 100vw;
+            height: 10vh;
+            background-color: var(--secondary-color);
+            min-width: 450px;
+        }
+
+        .footer-list {
+
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            height: 100%;
+            width: 100%;
+            list-style: none;
+        }
+
+        .footer-items {
+
+            transition: all .5s;
+            cursor: pointer;
+
+            &:hover {
+
+                color: var(--style-color);
+            }
+        }
+
+        #key {
+
+            display: none;
+        }
+
+        .form {
+
+            display: flex;
+        }
+
+        .img {
+
+            height: 50%;
+            width: 50%;
+            margin: auto;
+        }
+
+        .btn-alsoread {
+
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            color: var(--ternary-color);
+        }
+
+        .alsoreadInput {
+            display: none;
+        }
+
+        .source-img-container {
+
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: right;
+        }
+
+        .source-img {
+
+            width: 50%;
+            margin: 30px;
+            border-radius: 30px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-items">
+                    <h1 class="logo">Nodepedia</h1>
+                </li>
+                <div class="search-container">
+                    <form action="/" method="POST" class="form">
+                        <input type="text" name="search" id="inputSearch" value="" placeholder="Searching..." autocomplete="additional-name"/>
+                        <button type="submit" id="goBtn">Go</button>
+                    </form>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <span id="key"></span>
+    <main class="main">
+
+        <% if(homepage !=="Home" ) { %>
+            <div class="container">
+                <h1 id="title">
+                    <%= title %>
+                </h1>
+                <p id="extract">
+                    <%= extract %> To read more about "<%= title %>" you can visit <a href="<%= fullurl %>">wikipedia</a>.
+                </p>
+
+                <div class="source-image-container">
+                    <img src="<%= imgurl %>" alt="Image from wikipedia" class="source-img">
+                </div>
+
+                <form action="/" method="post">
+                    Also read about <input type="text" class="alsoreadInput" value="<%= alsoread %>" name="search">
+                    <button class="btn-alsoread">
+                        <%= alsoread %>
+                    </button>
+                </form>
+
+            </div>
+            <% } %>
+
+
+    </main>
+    <footer class="footer">
+        <ul class="footer-list">
+            <li class="footer-items">Terms And Conditions</li>
+            <li class="footer-items">Privacy Policy</li>
+            <li class="footer-items">About Us</li>
+        </ul>
+    </footer>
+    <script>
+    </script>
+</body>
+
+</html>
