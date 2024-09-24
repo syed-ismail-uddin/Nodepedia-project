@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width">
     <title>Nodepedia - <%= homepage %></title>
     <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
     <style>
@@ -35,13 +35,17 @@
             height: 100vh;
             overflow-x: hidden;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .nav {
 
             background-color: var(--secondary-color);
             width: 100vw;
-            min-width: 450px;
+            
             height: 60px;
         }
 
@@ -71,7 +75,7 @@
 
         #inputSearch {
 
-            width: 70vw;
+            width: 40vw;
             height: 30px;
             border: none;
             border-radius: 10px;
@@ -84,27 +88,12 @@
             }
         }
 
-        #goBtn {
-
-            padding: 5px;
-            border: 2px solid var(--primary-color);
-            border-radius: 50%;
-            background-color: transparent;
-            color: var(--primary-color);
-            transition: all .5s;
-
-            &:hover {
-
-                background-color: var(--color);
-            }
-        }
-
         .main {
 
             width: 80vw;
             height: max-content;
             margin: 50px auto;
-            min-width: 450px;
+            
         }
 
         .container {
@@ -112,7 +101,6 @@
             background-color: var(--secondary-color);
             height: 100%;
             width: 100%;
-            min-width: 400px;
             padding: 50px;
             border-radius: 30px;
             box-shadow: 5px 5px 10px;
@@ -132,9 +120,9 @@
         .footer {
 
             width: 100vw;
-            height: 10vh;
+            min-height: 10vh;
             background-color: var(--secondary-color);
-            min-width: 450px;
+            
         }
 
         .footer-list {
@@ -201,6 +189,26 @@
             margin: 30px;
             border-radius: 30px;
         }
+
+        @media only screen and (max-width: 455px){
+
+            .main {
+
+                width: 80vw;
+                height: max-content;
+                margin: 50px auto;
+
+            }
+
+            .container {
+
+                background-color: var(--secondary-color);
+                height: 100%;
+                width: 100%;
+                box-shadow: none;
+                padding: 25px;
+            }
+        }
     </style>
 
 </head>
@@ -215,7 +223,6 @@
                 <div class="search-container">
                     <form action="/" method="POST" class="form">
                         <input type="text" name="search" id="inputSearch" value="" placeholder="Searching..." autocomplete="additional-name"/>
-                        <button type="submit" id="goBtn">Go</button>
                     </form>
                 </div>
             </ul>
@@ -227,7 +234,7 @@
         <% if(homepage !=="Home" ) { %>
             <div class="container">
                 <h1 id="title">
-                    <%= title %>
+                    <a href="/"><%= title %></a>
                 </h1>
                 <p id="extract">
                     <%= extract %> To read more about "<%= title %>" you can visit <a href="<%= fullurl %>">wikipedia</a>.
@@ -245,6 +252,12 @@
                 </form>
 
             </div>
+            <% } else { %>
+
+                <div class="container">
+                    <center><h1 class="welcomeText">Welcome To The Home Of Knowledge</h1></center>
+                </div>
+
             <% } %>
 
 
@@ -256,8 +269,6 @@
             <li class="footer-items">About Us</li>
         </ul>
     </footer>
-    <script>
-    </script>
 </body>
 
 </html>
