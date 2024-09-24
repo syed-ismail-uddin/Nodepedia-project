@@ -41,11 +41,33 @@
             align-items: center;
         }
 
+        a{
+
+            a:link {
+              text-decoration: none;
+                color: #f8f9fa;
+            }
+
+            a:visited {
+                  text-decoration: none;
+                color: #f8f9fa;
+            }
+
+            a:hover {
+                  text-decoration: underline;
+                color: #f8f9fa;
+            }
+
+            a:active {
+                  text-decoration: underline;
+                color: #f8f9fa;
+            }
+        }
+
         .nav {
 
             background-color: var(--secondary-color);
             width: 100vw;
-            
             height: 60px;
         }
 
@@ -218,7 +240,7 @@
         <nav class="nav">
             <ul class="nav-list">
                 <li class="nav-items">
-                    <h1 class="logo">Nodepedia</h1>
+                    <h1 class="logo"><a href="/">Nodepedia<a></h1>
                 </li>
                 <div class="search-container">
                     <form action="/" method="POST" class="form">
@@ -234,7 +256,7 @@
         <% if(homepage !=="Home" ) { %>
             <div class="container">
                 <h1 id="title">
-                    <a href="/"><%= title %></a>
+                    <%= title %>
                 </h1>
                 <p id="extract">
                     <%= extract %> To read more about "<%= title %>" you can visit <a href="<%= fullurl %>">wikipedia</a>.
