@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const wikipedia = require("wikipedia");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
